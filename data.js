@@ -22,7 +22,7 @@ export const filterOrigin = (dataAll, string) => {
 export const filterCharacters = (dataAll,string) => {
   const nuevoArray = dataAll.filter((obj)=> obj.name.toLowerCase().startsWith(string));
   return nuevoArray;
- };
+};
 
  export const filterLocation= (dataAll, string) => {
   const nuevoArray = dataAll.filter((obj) => obj.location.name === string); // Alien Humanoide
@@ -34,17 +34,4 @@ export const filterStatus= (dataAll, string) => {
   return nuevoArray;
 };
 
-// Ordenar de la A-Z y Z-A
-export const oderAlphabetically=(dataAll, string) =>{
-  const orderAZ= dataAll.sort((name1,name2)=>((name1.name>name2.name)?1:-1));
-  if (string==='A-Z'){
-    return orderAZ;
-  }
-
-  if (string=== 'Z-A'){
-    return orderAZ.reverse();
-  }
-
-  return orderAZ;
-}
 
