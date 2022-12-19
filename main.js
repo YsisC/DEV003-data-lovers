@@ -1,5 +1,5 @@
 import {   filterGender,filterSpecies,filterOrigin,filterCharacters,filterLocation,
-  filterStatus
+  filterStatus,oderAlphabetically
        
 } from './data.js';
 // import rickandmorty from './data/rickandmorty/rickandmorty.js';
@@ -12,6 +12,8 @@ import data from './data/rickandmorty/rickandmorty.js';
 const dataResult = data.results;
 
 // console.log(dataResult, typeof dataResult);
+//  document.addEventListener("pantalla de inicio").style.display='';
+// document.addEventListener("filter").style.display='none';
 
 // Crear una funcion para que me tome los datos del objeto y mediante un div los va agregar
 
@@ -28,11 +30,11 @@ const containerElement = (obj) =>{
     <span class="close">&times;</span>
     <h2>${obj.name}</h2>
     <img src="${obj.image}"/>
-    <p> Estado: ${obj.status}</p>
-    <p> Especie: ${obj.species}</p>
-    <p> Genero: ${obj.gender}</p>
-    <p> Origen: ${obj.origin.name}</p>
-    <p> Locacion: ${obj.location.name}</p>
+    <p> Status: ${obj.status}</p>
+    <p> Species: ${obj.species}</p>
+    <p> Gender: ${obj.gender}</p>
+    <p> Origin: ${obj.origin.name}</p>
+    <p> Location: ${obj.location.name}</p>
   </div>`;
 
   //Mostrar el Modal con todos los datos completos
@@ -123,10 +125,6 @@ const filterStatusEl= document.querySelector("#status");
   const status=verPersonajes(filterStatus(dataResult,filterStatusEl.value))
   return status;
 })
-
-
-
-
 // Buscador por personaje
 
 const searchCharacthersEl= document.querySelector("#search");
@@ -138,6 +136,21 @@ searchCharacthersEl.addEventListener('input',function(){
   const characters = searchCharacthersEl.value.toLowerCase();
   verPersonajes(filterCharacters(dataResult,characters));
 })
+
+// Ordenar alfabeticamente
+
+const orderCharacthersEl= document.querySelector("#order");
+
+// filtro alfabeto
+
+orderCharacthersEl.addEventListener('click',function(){
+  insertAllResult.innerHTML="";
+  const orderCharacther =verPersonajes(oderAlphabetically(dataResult,orderCharacthersEl.value));
+  return orderCharacther
+})
+
+
+
 
 
 
