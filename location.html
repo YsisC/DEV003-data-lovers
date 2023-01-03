@@ -16,8 +16,8 @@
       <nav>
         <ul id="navbar" class="navbar">
           <li><a  href="home.html">Home</a></li>
-          <li><a class="active" href="index.html" >Characters</a></li>
-          <li><a href="location.html">Location</a></li>
+          <li><a  href="index.html" >Characters</a></li>
+          <li><a class="active" href="location.html">Location</a></li>
         </ul>
       </nav>
     </header>
@@ -28,26 +28,7 @@
     </div>
     <div id="filter">
      
-      <select name="gender" class="select" id="gender">
-        <option >Gender</option>
-        <option value="Female">Female</option>
-        <option value="Male">Male</option>
-        </select>
-      <select name="species" class="select" id="species">
-          <option>Species</option>
-          <option value="Human">Human</option>
-          <option value="Alien">Alien</option>
-          <option value="Humanoid">Humanoid</option>
-          <option value="Animal">Animal</option>
-          <option value="unknown">Unknow</option>
-          <option value="Poopybutthole">Poopybuthole</option>
-          <option value="Mytholog">Mytholog</option>
-          <option value="Vampire">Vampire</option>
-          <option value="Robot">Robot</option>
-          <option value="Cronenberg">Cronenberg</option>
-          <option value="Disease">Disease</option>
-          <option value="Parasite">Parasite</option>
-          </select>
+      
       <select name="origin" class="select" id="origin">
             <option value="">Origin</option>
             <option value="Earth (C-137)">Earth (C-137)</option>
@@ -59,12 +40,10 @@
             <option value="Venzenulon 7">Venzenulon 7</option>
             <option value="Interdimensional Cable">Interdimensional Cable</option>
           </select>
-          <select name="status" class="select" id="status">
-            <option value="">Status</option>
-            <option value="Alive"> Alive</option>
-            <option value="unknown">Unknown</option>
-            <option value="Dead">Dead</option>
-          </select>
+             <!-- <label for="sug">Genero</label>
+          <input type="list">
+           -->
+           <input id="search" class="search" placeholder="Buscar Personajes">
 
           <select name="location" class="select" id="location">
             <option value="">Location</option>
@@ -130,17 +109,10 @@
             <option value="Interdimensional Cable">Interdimensional Cable</option>
           </select>
 
-          <select name ="order" id="order" class="select">
-            <option value="">Order</option>
-            <option value="A-Z">A-Z</option>
-            <option value="Z-A">Z-A</option>
-          </select>
+          
 
 
-          <!-- <label for="sug">Genero</label>
-          <input type="list">
-           -->
-          <input id="search" class="search" placeholder="Buscar Personajes">
+      
     </div>
     <br>
     <br>
@@ -155,6 +127,6 @@
   </main>
   <footer> Creado por Ysis Longart y Angie Muñoz. Derechos Reservados
   </footer>
-    <script src="main.js" type="module"></script>
+    <script src="mainlocation.js" type="module"></script>
   </body>
 </html>

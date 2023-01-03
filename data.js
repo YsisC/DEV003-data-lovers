@@ -24,7 +24,7 @@ export const filterCharacters = (dataAll,string) => {
   return nuevoArray;
 };
 
- export const filterLocation= (dataAll, string) => {
+export const filterLocation= (dataAll, string) => {
   const nuevoArray = dataAll.filter((obj) => obj.location.name === string); // Alien Humanoide
   return nuevoArray;
 };
@@ -45,6 +45,5 @@ export const oderAlphabetically=(dataAll, string) =>{
     return orderAZ.reverse();
   }
 
-  return orderAZ;
 }
 

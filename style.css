@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +8,6 @@
 }
 body {
     width: 100%;
-    /* background-color: #000000; */
     background-image: url("img/Space.jpg");   
 }
 
@@ -20,18 +21,23 @@ header {
     padding: 20px 80px;
     background-color: black;
     box-shadow: 0 5px 15px rgb(0, 0,0.6) ;
-    /* z-index: 999;
+    z-index: 4;
     position: sticky;
     top: 0;
-    left: 0; */
+    left: 0;
 }
+.menu-icon{
+    display: none;
 
+}
 #navbar {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 
 }
+
 #navbar li {
     list-style: none;  /*Para quitar el punto de la lista */
     margin-top: 25px;
@@ -47,7 +53,6 @@ header {
     transition: 0.3s ease;
 }
 #navbar li a:hover, #navbar li a.active {
-    /* color: blueviolet; */
     color: #13c4c4;
 }
 
@@ -56,21 +61,20 @@ header {
     width: 30%;
     height: 2px;
     background-color: #13c4c4;
-    /* background-color: blueviolet; */
     position: absolute;
     bottom: -4px;
     left: 20px;
 }
+
+
+
 main{
-    /* background-image: url("img/rick-and-morty-BackGround.jpg");  */
-    /* background-image: url("img/Space.jpg");   */
-    height: 500vh;
+   
+    height: 140vh;
     width: 100%;
     background-size: cover;
     background-position: top 25% right 0;
-    padding: 0 100px;
-    /* padding-left: 400px; */ /* Por que colocaste esto?*/
-    /* display: grid;  */
+    padding: 0 40px;
     display: block;
     align-items: flex-start;
     color: whitesmoke;
@@ -120,7 +124,7 @@ a:visited {
 
 #filter{
     
-    padding: 0 70px;
+    padding: 0 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -128,6 +132,11 @@ a:visited {
  
 } 
 
+.resultCard {
+    text-align: center;
+    overflow: auto;
+    height:70vh;
+}
 
 #filter .select{
     width: 150px;
@@ -158,31 +167,20 @@ a:visited {
     background-color: #13C4C4;
 }
 
-/*Este es el original
-#filter{
-    display: flex;
-    position: center;
 
 
-#Buttons{
-    margin-top:2%;
-    margin-left: 8%;
-}
-
-/* .resultCard{
-
-    display:flex;
-} */
-
-.cardDiv{
+* .cardDiv{
+    padding: 0 10px;
     display: inline-flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
-}
+    justify-content: space-between;
+} 
+
 .cardBoxDiv {
     width: 200px;
-     height: 200px;  
+    height: 200px;  
     background-color: #13C4C4;
     backdrop-filter: blur(40px); 
     text-align: center;
@@ -190,13 +188,16 @@ a:visited {
     border: 2px solid  #14B1B1;
     margin:10px;
     color: #F2FBF4;
-    font-size: 15px;
+    font-size: 12px;
     padding: 10px 20px 10px;
  } 
  .cardBoxDiv img{
     width: 100px;
 
  }
+ 
+
+
  .contenedorModal{
     display: none;
     position: fixed;
@@ -243,3 +244,105 @@ footer{
     box-shadow: 0 5px 15px rgb(0, 0,0.6) ;
    
 }
+
+@media only screen and (max-width: 880px) {
+    
+    header{
+        display: block; 
+        width: 100%;
+        margin-top: 1rem;
+        
+    }
+    header img{
+    width: 100%;
+    }
+
+    .menu-icon{
+        display: block;
+        color: #F2FBF4;
+        cursor: pointer;
+        width: 2rem;
+        margin-left: 50%;
+    }
+    #navbar{
+        display: none;
+        width: 100%;
+        margin-top: 2rem;
+        
+    }
+
+    #navbar ul{
+        display:none;
+
+    }
+
+    #navbar.show{
+        display:block;
+        width: 100%;
+
+    }
+    /* /* #navbar ul li {
+       /* display: block; */
+       /* width: 100%; */
+    /* }  */ 
+    #navbar ul li a {
+        text-decoration: none;
+        display: block;
+        padding: 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: whitesmoke;
+        transition: 0.3s ease;
+    }
+    /* #navbar li a:hover, #navbar li a.active {
+        color: #13c4c4;
+    }
+    
+    #navbar li a.active::after, #navbar li a:hover::after {
+        content: "";
+        width: 30%;
+        height: 2px;
+        background-color: #13c4c4;
+        position: absolute;
+        bottom: -4px;
+        left: 20px;
+    }
+
+    #filter{
+        display: block;
+        width: 100%;
+    }
+
+    #filter .select{
+        width: 95%;
+    } */
+
+    .cardBoxDiv{
+        width: 100px;
+        height: 100px;
+        font-size: 7px; 
+        padding: 5px 10px; 
+        margin: 5px;
+    }
+
+    .cardBoxDiv img {
+        width:40px ;
+    }
+
+    .contenedorModal{
+        top: 35%; left: 20%;
+        z-index:5;
+    }
+    .contenedorModal img{
+        width: 10rem;
+    }
+
+    .close{
+        top: 35%; 
+        right: 22%;
+    }
+
+ }
+
+
+ 
