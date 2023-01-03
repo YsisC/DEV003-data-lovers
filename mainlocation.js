@@ -1,5 +1,5 @@
-import {   filterGender,filterSpecies,filterOrigin,filterCharacters,filterLocation,
-  filterStatus,oderAlphabetically
+import {   filterOrigin,filterCharacters,filterLocation,
+
          
 } from './data.js';
 // import rickandmorty from './data/rickandmorty/rickandmorty.js';
@@ -50,8 +50,7 @@ const containerElement = (obj) =>{
       <p> Species: ${obj.species}</p>
       <p> Gender: ${obj.gender}</p>
       <p> Origin: ${obj.origin.name}</p>
-      <p> Location: ${obj.location.name}</p>
-      <p> episodio: ${obj.episode}</p>
+    
     </div>`;
   
   //Mostrar el Modal con todos los datos completos

@@ -8,6 +8,7 @@ import data from './data/rickandmorty/rickandmorty.js';
 // console.log(example, data);
 
 
+
 // const startbtnEl = document.getElementById('inicio');
 
 // startbtnEl.addEventListener('click',  ()=> {

@@ -4,7 +4,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: 'IBM Plex Mono', monospace;
+ 
+    
 }
 body {
     width: 100%;
@@ -70,7 +73,7 @@ header {
 
 main{
    
-    height: 140vh;
+    height: 115vh;
     width: 100%;
     background-size: cover;
     background-position: top 25% right 0;
@@ -89,9 +92,7 @@ main{
     /* margin-top: 25px; */
 
 }
-#presentacion h3 {
-    color :rgb(233, 233, 6)
-}
+
 
 #presetacion a:hover {
     color : white;
@@ -103,11 +104,18 @@ a:link {
 a:visited {
     color: white;
  }
-#presentacion .welcome .wselect{
+ 
+.welcome{
+    margin-top: 150px;
+    margin-left: 20px;
+    font-size: larger;
+}
+
+
+ #presentacion .welcome .wselect{
     width: 150px;
     text-align: center;
     padding: 5px 2px;
-    margin: 5px 2px;
     box-shadow: 3px 3px 7px #898989 ;
     border: 1px solid whitesmoke;
     border-radius: 5px;
@@ -118,6 +126,7 @@ a:visited {
     display: flex;
     align-items:flex-end;
     justify-content: center;
+    margin-left: 150px;
 }
 
 
@@ -201,10 +210,12 @@ a:visited {
  .contenedorModal{
     display: none;
     position: fixed;
-    top: 30%; left: 20%;
+    top: 30%; left: 24%;
     z-index:2;
     background-color: #f0f4f0;
-    width: 60%;
+    width: 40%;
+    height: 42%;
+    padding-top: 3%;
     border-radius: 20px;
     font-size: 15px;
     text-align: center;
@@ -227,13 +238,18 @@ a:visited {
     font-weight: bold;
     position: inherit;
     top: 30%;
-    right: 22%;
+    right: 37%;
 }
 
 .close:hover{
     color: rgb(6, 106, 113);
     text-decoration: none;
     cursor: pointer;
+}
+
+#chart{
+    font-size: larger;
+    background-color: white;
 }
 footer{
     display: grid;

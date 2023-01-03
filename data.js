@@ -41,9 +41,14 @@ export const oderAlphabetically=(dataAll, string) =>{
     return orderAZ;
   }
 
-  if (string=== 'Z-A'){
+  else if (string=== 'Z-A'){
     return orderAZ.reverse();
   }
 
 }
 
+
+export const percentSpecies = function (species, resultSpecies) {
+  const percent = (resultSpecies.length *100)/species.length;
+  return Math.round(percent);
+}

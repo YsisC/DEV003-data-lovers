@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Lovers Rick and Morty</title>
+    <link rel="stylesheet" href="style.css" />
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"  />
+  </head>
+  
+  
+  <body>
+    <header>
+      <a class="logo" href="#"><img src="./img/Logo Rick and morty.png" alt=""></a>
+      <span class="menu-icon"><img src ="./img/menuf.png"></span>
+      <nav>
+        <ul id="navbar" class="navbar">
+          <li><a  href="index.html">Home</a></li>
+          <li><a  href="characters.html" >Characters</a></li>
+          <li><a href="location.html">Location</a></li>
+          <li><a class="active" href="Statistics.html">Statistics</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+    <br> 
+    <div id="pantalla de inicio" class="init">
+    
+    </div>
+    <div id="filter">
+     
+   
+      
+          <select name="location" class="select" id="location">
+            <option value="">Estadistica</option>
+            <option value="Earth (Replacement Dimension)"> Earth (Replacement Dimension)</option>
+          
+          </select>
+
+        
+<br>
+
+  
+<canvas id="chart" width="800" height="400"></canvas>
+    <div class="my-modal">
+      <div id="flex" class="flex">
+      </div>
+    </div>
+
+  </main>
+  <footer> Creado por Ysis Longart y Angie Muñoz. Derechos Reservados
+  </footer>
+    <script src="main.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" type="module"></script>
+<script type="module">
+    import data from './data/rickandmorty/rickandmorty.js';
+ 
+    function totalCasesChart (ctx) {
+        // const{
+        //     results
+        // }= data
+      const chart =  new Chart(ctx,{
+        type: 'line',
+        data:{
+            labels: data.results.map(item=>item.gender),
+            // labels: ['female', 'male'],
+            datasets: [{
+                label:'Female',
+                data: [1,20,30,40]
+            },
+            {
+                label:'Male',
+                data: [1,25,40,40]
+            },{
+                label:'No gender',
+                data: [1,15,10,40]
+            }]
+            
+        }
+      })
+      
+        }
+        
+    ;
+      
+      const renderCharts = function  () {
+        const ctx = document.querySelector('#chart').getContext('2d');
+        totalCasesChart(ctx);
+      }
+      renderCharts();
+    </script>
+  </body>
+</html>
