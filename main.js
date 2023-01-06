@@ -1,4 +1,4 @@
-import {   filterGender,filterSpecies,filterOrigin,filterCharacters,filterLocation,
+import {   filterGender,filterSpecies,filterCharacters,
   filterStatus,oderAlphabetically
        
 } from './data.js';
@@ -9,11 +9,6 @@ import data from './data/rickandmorty/rickandmorty.js';
 
 
 
-// const startbtnEl = document.getElementById('inicio');
-
-// startbtnEl.addEventListener('click',  ()=> {
-//   window.location.href = 'index.html';
-// })
 
 //La data tomada del archivo './data/rickandmorty/rickandmorty.js'
 const dataResult = data.results;
@@ -118,26 +113,8 @@ filterSpeciesEl.addEventListener('change',function(){
  
 });
 
-// Boton por origin 
 
-const filterOriginEl= document.querySelector("#origin");
-// Filtro por origin
-
-filterOriginEl.addEventListener('change',function(){
-  insertAllResult.innerHTML="";
-  verPersonajes(filterOrigin(dataResult,filterOriginEl.value))
-})
-
-// Boton por locacion
-
-const filterLocationEl= document.querySelector("#location");
-// Filtro por locacion
-
-filterLocationEl.addEventListener('change',function(){
-  insertAllResult.innerHTML="";
-  verPersonajes(filterLocation(dataResult,filterLocationEl.value))
- 
-})
+// })
 
 // Boton por Status
 

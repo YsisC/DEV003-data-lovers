@@ -73,14 +73,24 @@ header {
 
 main{
    
-    height: 115vh;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     background-size: cover;
     background-position: top 25% right 0;
     padding: 0 40px;
     display: block;
     align-items: flex-start;
     color: whitesmoke;
+}
+
+
+.statisticalMain{
+    /* height: 300vh; */
+    overflow: auto;
+}
+
+.graphics{
+    margin: 9rem;
 }
 
 #presentacion{
@@ -214,14 +224,17 @@ a:visited {
     z-index:2;
     background-color: #f0f4f0;
     width: 40%;
-    height: 42%;
-    padding-top: 3%;
     border-radius: 20px;
     font-size: 15px;
     text-align: center;
     animation-name: modal;
     animation-duration: 2s;
     color: #000000;
+    height: 65%;
+    
+ }
+ .contenedorModal h2 {
+    margin-top: 20px;
  }
 
  .contenedorModal img{
@@ -250,6 +263,26 @@ a:visited {
 #chart{
     font-size: larger;
     background-color: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    border-color: #898989;
+}
+#charStatus{
+    width: 100px;
+    height: 200px;
+    background: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    border-color: #898989;
+    
+}
+#charLocation{
+    width: 800px;
+    height: 400px;
+    background: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    border-color: #898989;
 }
 footer{
     display: grid;
@@ -260,6 +293,8 @@ footer{
     box-shadow: 0 5px 15px rgb(0, 0,0.6) ;
    
 }
+
+
 
 @media only screen and (max-width: 880px) {
     
@@ -310,6 +345,13 @@ footer{
         color: whitesmoke;
         transition: 0.3s ease;
     }
+    .welcome{
+        margin-top: 10px;
+        margin-left: 8px;
+        font-size: medium;
+        font-weight: 1000;
+    }
+    
     /* #navbar li a:hover, #navbar li a.active {
         color: #13c4c4;
     }
@@ -328,11 +370,14 @@ footer{
         display: block;
         width: 100%;
     }
-
+*/
     #filter .select{
-        width: 95%;
-    } */
-
+        width: 100%;
+    } 
+    #filter .search{
+        width: 100%;
+    
+    }
     .cardBoxDiv{
         width: 100px;
         height: 100px;
@@ -345,20 +390,59 @@ footer{
         width:40px ;
     }
 
+    .graphics{
+        margin: 0rem;
+    }
+
     .contenedorModal{
-        top: 35%; left: 20%;
+        width: 71%;
+        top: 35%; left: 17%;
         z-index:5;
+        padding-top: 3%;
+        height: 42%;
     }
     .contenedorModal img{
         width: 10rem;
     }
-
+    .contenedorModal h2 {
+        margin-top: 10px;
+    }
     .close{
+        width: 25px;
+        height: 25px;
         top: 35%; 
-        right: 22%;
+        right: 14%;
+        background-color: #13C4C4;
+        border-radius: 15px;
+        font-size: 17px;
     }
 
+    #chart{
+        font-size: larger;
+        background-color: white;
+        margin-top: 20px;
+        border-radius: 10px;
+        border-color: #898989;
+    }
+    .charStatus{
+        width: 800px;
+        height: 400px;
+        background: white;
+        margin-top: 20px;
+        border-radius: 10px;
+        border-color: #898989;
+        
+    }
+    #charLocation{
+        width: 800px;
+        height: 400px;
+        background: white;
+        margin-top: 20px;
+        border-radius: 10px;
+        border-color: #898989;
+    }
  }
 
-
  
+
+

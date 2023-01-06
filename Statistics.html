@@ -1,94 +1,297 @@
 <!DOCTYPE html>
 <html lang="EN">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Lovers Rick and Morty</title>
-    <link rel="stylesheet" href="style.css" />
- 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"  />
-  </head>
-  
-  
-  <body>
-    <header>
-      <a class="logo" href="#"><img src="./img/Logo Rick and morty.png" alt=""></a>
-      <span class="menu-icon"><img src ="./img/menuf.png"></span>
-      <nav>
-        <ul id="navbar" class="navbar">
-          <li><a  href="index.html">Home</a></li>
-          <li><a  href="characters.html" >Characters</a></li>
-          <li><a href="location.html">Location</a></li>
-          <li><a class="active" href="Statistics.html">Statistics</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-    <br> 
-    <div id="pantalla de inicio" class="init">
-    
-    </div>
-    <div id="filter">
-     
-   
-      
-          <select name="location" class="select" id="location">
-            <option value="">Estadistica</option>
-            <option value="Earth (Replacement Dimension)"> Earth (Replacement Dimension)</option>
-          
-          </select>
 
-        
-<br>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Lovers Rick and Morty</title>
+  <link rel="stylesheet" href="style.css" />
 
-  
-<canvas id="chart" width="800" height="400"></canvas>
-    <div class="my-modal">
-      <div id="flex" class="flex">
-      </div>
-    </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+</head>
+
+
+<body>
+  <header>
+    <a class="logo" href="#"><img src="./img/Logo Rick and morty.png" alt=""></a>
+    <span class="menu-icon"><img src="./img/menuf.png"></span>
+    <nav>
+      <ul id="navbar" class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="characters.html">Characters</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a class="active" href="Statistics.html">Statistics</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="statisticalMain">
+    <br>
+    <h1> Statistical Calculations </h1>
+    <button>Species Dashboard</button>
+    <button>Status Dashboard</button>
+    <button>Top 10 Location Dashboard</button>
+  <div class="graphics">
+    <canvas id="chart" class="chart" width="800" height="400"></canvas>
+    <canvas id="charStatus" class="chartStatus" width="700" height="400"></canvas>
+    <canvas id="charLocation" class="chartLocation" width="700" height="400"></canvas>
+  </div>
+
 
   </main>
   <footer> Creado por Ysis Longart y Angie Muñoz. Derechos Reservados
   </footer>
-    <script src="main.js" type="module"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" type="module"></script>
-<script type="module">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" type="module"></script>
+  <script type="module">
+
+    const botonMenu = document.querySelector(".menu-icon");
+    const menu = document.querySelector(".navbar");
+    botonMenu.addEventListener('click', () => {
+
+      menu.classList.toggle("show")
+    });
+
     import data from './data/rickandmorty/rickandmorty.js';
- 
-    function totalCasesChart (ctx) {
-        // const{
-        //     results
-        // }= data
-      const chart =  new Chart(ctx,{
-        type: 'line',
-        data:{
-            labels: data.results.map(item=>item.gender),
-            // labels: ['female', 'male'],
-            datasets: [{
-                label:'Female',
-                data: [1,20,30,40]
-            },
-            {
-                label:'Male',
-                data: [1,25,40,40]
-            },{
-                label:'No gender',
-                data: [1,15,10,40]
-            }]
-            
-        }
-      })
-      
-        }
-        
-    ;
-      
-      const renderCharts = function  () {
-        const ctx = document.querySelector('#chart').getContext('2d');
-        totalCasesChart(ctx);
+    const dataRick = data.results;
+    const species = [{ species: "Alien" }, { species: "Animal" }, { species: "Cronenberg" }, { species: "Disease" }, { species: "Human" }, { species: "Humanoid" }, { species: "Mytholog" }, { species: "Parasite" }, { species: "Poopybutthole" }, { species: "Robot" }, { species: "Vampire" }, { species: "unknown" }];
+    const Status = [{ status: "Alive" }, { status: "Dead" }, { status: "unknown" }];
+
+
+    const location = [{ location: { "name": 'unknown' } }, { location: { "name": "Earth (Replacement Dimension)" } },
+    { location: { "name": 'Earth (C-137)' } },
+    { location: { "name": 'Citadel of Ricks' } },
+    { location: { "name": "Anatomy Park" } },
+    { location: { "name": 'Planet Squanch' } },
+    { location: { "name": 'St. Gloopy Noops Hospital' } },
+    { location: { "name": 'Post-Apocalyptic Earth' } },
+    { location: { "name": 'Nuptia 4' } },
+    { location: { "name": 'Interdimensional Cable' } }
+    ];
+
+
+
+    const speciesEl = document.querySelector("#species"); // boton de mostrar y ocultar
+    const canvasSpecies = document.querySelector('#chart').getContext('2d');
+    const canvaStatus = document.getElementById("charStatus").getContext("2d");
+    const canvaLocation = document.getElementById("charLocation").getContext("2d");
+
+
+    const totalData = dataRick.length;
+    let countSpecies = {};
+    let countStatus = {};
+    let countLocation = {};
+    let countOrigin = {};
+
+    dataRick.forEach((item) => {
+
+      if (countSpecies[item.species]) {
+        countSpecies[item.species] += 1;
+      } else {
+        countSpecies[item.species] = 1;
       }
-      renderCharts();
-    </script>
-  </body>
+
+    });
+
+    dataRick.forEach((item) => {
+
+      if (countStatus[item.status]) {
+        countStatus[item.status] += 1;
+      } else {
+        countStatus[item.status] = 1;
+      }
+
+    });
+    dataRick.forEach((item) => {
+
+      if (countLocation[item.location.name]) {
+        countLocation[item.location.name] += 1;
+      } else {
+        countLocation[item.location.name] = 1;
+      }
+
+    });
+    dataRick.forEach((item) => {
+      if (countOrigin[item.origin.name]) {
+        countOrigin[item.origin.name] += 1;
+      } else {
+        countOrigin[item.origin.name] = 1;
+      }
+
+    })
+    console.log(countSpecies, typeof countSpecies);
+    console.log(countLocation, typeof countLocation);
+    console.log(countLocation['Citadel of Ricks']);
+
+
+
+
+    const chartSpecies = new Chart(canvasSpecies, {
+      type: 'bar',
+      data: {
+        labels: species.map(item => item.species),
+        datasets: [{
+          label: 'Species',
+          data: [(countSpecies.Alien / totalData) * 100,
+          (countSpecies.Animal / totalData) * 100,
+          (countSpecies.Cronenberg / totalData) * 100,
+          (countSpecies.Disease / totalData) * 100,
+          (countSpecies.Human / totalData) * 100,
+          (countSpecies.Humanoid / totalData) * 100,
+          (countSpecies.Mytholog / totalData) * 100,
+          (countSpecies.Parasite / totalData) * 100,
+          (countSpecies.Poopybutthole / totalData) * 100,
+          (countSpecies.Robot / totalData) * 100,
+          (countSpecies.Vampire / totalData) * 100,
+          (countSpecies.unknown / totalData) * 100,],
+
+          backgroundColor: [
+            'RGB(217,136,128, 0.2)',
+            '#C39BD3',
+            '#F1948A',
+            '#7FB3D5',
+            '#76D7C4',
+            '#7DCEA0',
+            '#F7DC6F',
+            '#F0B27A',
+            '#AED6F1',
+            '#76448A',
+            '#B9770E',
+            '#E74C3C',
+          ],
+          boderColor: [
+            'RGB(217,136,128, 1)',
+            '#C39BD3',
+            '#F1948A',
+            '#7FB3D5',
+            '#76D7C4',
+            '#7DCEA0',
+            '#F7DC6F',
+            '#F0B27A',
+            '#AED6F1',
+            '#76448A',
+            '#B9770E',
+            '#E74C3C'
+          ],
+          boderWidth: 1.5,
+        },
+        ]
+      },
+      options: {
+        responsive: true,
+        responsiveAnimationDuration: 0,
+        legend: {
+          data: {
+            width: 100,
+            height: 300,
+            fontSize: 30,
+            padding: 5,
+            boxWidth: 30,
+            fontFamily: 'Audiowide',
+            fontColor: 'black',
+          }
+        },
+      },
+
+    })
+
+
+    const chartStatus = new Chart(canvaStatus, {
+      type: "doughnut",
+      data: {
+        labels: Status.map(s => s.status),
+        datasets: [
+          {
+            label: "Status",
+            data: [(countStatus.Alive / totalData) * 100,
+            (countStatus.Dead / totalData) * 100,
+            (countStatus.unknown / totalData) * 100,
+            ],
+            backgroundColor: [
+              '#76D7C4',
+              '#C39BD3',
+              '#F1948A',
+            ]
+          }
+        ]
+      },
+
+      options: {
+        responsive: true,
+        responsiveAnimationDuration: 0,
+        legend: {
+          labels: {
+            width: 100,
+            height: 300,
+            fontSize: 12,
+            padding: 5,
+            boxWidth: 30,
+            fontFamily: 'Audiowide',
+            fontColor: 'black',
+          }
+        },
+
+      },
+    });
+
+
+    // Donde viven
+
+    const chartLocation = new Chart(canvaLocation, {
+      type: 'line',
+      data: {
+        labels: location.map(s => s.location.name),
+        datasets: [
+          {
+            label: "Location",
+            data: [(countLocation['unknown']), (countLocation['Earth (Replacement Dimension)']),
+            (countLocation['Earth (C-137)']),
+            (countLocation['Citadel of Ricks']),
+            (countLocation['Anatomy Park']),
+            (countLocation['Planet Squanch']),
+            (countLocation['St. Gloopy Noops Hospital']),
+            (countLocation['Post-Apocalyptic Earth']),
+            (countLocation['Nuptia 4']),
+            (countLocation['Interdimensional Cable']),
+            ],
+            borderColor: 'rgb(75, 192, 192)',
+            // backgroundColor: [
+            //     '#76D7C4',
+            //     '#C7DC6F',
+            //     '#F1948A',
+            //     '#F0B27A',
+            //     '#C39BD3',
+            //     '#F1948A',
+            //     '#7FB3D5',
+            //     '#E74C3C',
+            //     '#7DCEA0',
+            //     '#F7DC6F',
+
+            // ]
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        responsiveAnimationDuration: 0,
+        legend: {
+          labels: {
+            width: 100,
+            height: 300,
+            fontSize: 8,
+            padding: 5,
+            boxWidth: 30,
+            fontFamily: 'Audiowide',
+            fontColor: 'black',
+          }
+        },
+
+      },
+    }
+
+    );
+
+
+
+  </script>
+</body>
+
 </html>

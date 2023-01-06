@@ -48,7 +48,7 @@ export const oderAlphabetically=(dataAll, string) =>{
 }
 
 
-export const percentSpecies = function (species, resultSpecies) {
-  const percent = (resultSpecies.length *100)/species.length;
-  return Math.round(percent);
-}
+// export const percentSpecies = function (species, resultSpecies) {
+//   const percent = (resultSpecies.length *100)/species.length;
+//   return Math.round(percent);
+// }

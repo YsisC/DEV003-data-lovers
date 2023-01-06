@@ -1,4 +1,4 @@
-import {   filterOrigin,filterCharacters,filterLocation,
+import {   filterOrigin,filterLocation,
 
          
 } from './data.js';
@@ -119,16 +119,7 @@ filterLocationEl.addEventListener('change',function(){
 
 // Buscador por personaje
   
-const searchCharacthersEl= document.querySelector("#search");
-  
-//Filtro por personajes
-  
-searchCharacthersEl.addEventListener('input',function(){
-  insertAllResult.innerHTML="";
-  const characters = searchCharacthersEl.value.toLowerCase();
-  verPersonajes(filterCharacters(dataResult,characters));
-  
-})
+
   
 
   
