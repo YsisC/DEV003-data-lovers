@@ -70,7 +70,6 @@ header {
 }
 
 
-
 main{
    
     height: 100vh;
@@ -84,48 +83,28 @@ main{
 }
 
 
-.statisticalMain{
-    /* height: 300vh; */
-    overflow: auto;
-}
-
-.graphics{
-    margin: 9rem;
-}
 
 #presentacion{
     background-image:url("img/Fondo.jpg");
     background-size: cover; 
     background-position: top 25% right 0 ;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     /* margin-top: 25px; */
 
 }
 
-
-#presetacion a:hover {
-    color : white;
-
-}
-a:link {
-    color: white;
-  }
-a:visited {
-    color: white;
- }
- 
 .welcome{
-    margin-top: 150px;
-    margin-left: 20px;
+    margin-top: 7rem;
+    margin-left: 2rem;
     font-size: larger;
 }
 
 
  #presentacion .welcome .wselect{
-    width: 150px;
+    width: 15%;
     text-align: center;
-    padding: 5px 2px;
+    padding: 0.5rem 0.5rem;
     box-shadow: 3px 3px 7px #898989 ;
     border: 1px solid whitesmoke;
     border-radius: 5px;
@@ -142,20 +121,23 @@ a:visited {
 
 
 #filter{
-    
-    padding: 0 10px;
+    margin: 0 5.5rem;
+    padding: 0 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
  
 } 
-
-.resultCard {
-    text-align: center;
-    overflow: auto;
-    height:70vh;
+#filter-location{
+    margin: 0 35rem;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
+
 
 #filter .select{
     width: 150px;
@@ -172,7 +154,21 @@ a:visited {
     
 
 }
+#filter-location .select{
+    width: 150px;
+    text-align: center;
+    padding: 5px 2px;
+    margin: 5px 2px;
+    box-shadow: 3px 3px 7px #898989 ;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    background-color: #13c4c4;
+    color: #1a4121;
+    font-size: 15px;
+    cursor: pointer;
+    
 
+}
 
 #filter .search{
     width: 150px;
@@ -181,11 +177,11 @@ a:visited {
     padding-left: 3.5px;
 
 }
-
-.init{
-    background-color: #13C4C4;
+.resultCard {
+    text-align: center;
+    overflow: auto;
+    height:70vh;
 }
-
 
 
 * .cardDiv{
@@ -199,24 +195,25 @@ a:visited {
 
 .cardBoxDiv {
     width: 200px;
-    height: 200px;  
+    height: 220px;  
     background-color: #13C4C4;
-    backdrop-filter: blur(40px); 
     text-align: center;
-    border-radius: 5px;
-    border: 2px solid  #14B1B1;
-    margin:10px;
+    border-radius: 2px 20px;
+    border: 5px solid  #14B1B1;
+    margin:1rem;
     color: #F2FBF4;
     font-size: 12px;
     padding: 10px 20px 10px;
  } 
  .cardBoxDiv img{
-    width: 100px;
-
+    width: 100%; 
+    height: 68%; 
  }
+ .cardBoxDiv:hover{
+    background-color: rgb(225, 246, 111);
+    cursor: pointer;
+}
  
-
-
  .contenedorModal{
     display: none;
     position: fixed;
@@ -227,27 +224,35 @@ a:visited {
     border-radius: 20px;
     font-size: 15px;
     text-align: center;
-    animation-name: modal;
-    animation-duration: 2s;
     color: #000000;
-    height: 65%;
+    height: 48%;
     
  }
+ .contenedorModal:hover {
+    animation-name: rotate;
+    animation-duration: 0.9s;
+  }
+  
+  /* @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(380deg);
+    }
+  } */
  .contenedorModal h2 {
-    margin-top: 20px;
+    margin-top: 3rem;
  }
 
  .contenedorModal img{
-    width: 250px;
+    width: 35%;
 }
 
- .cardBoxDiv:hover{
-    background-color: rgb(225, 246, 111);
-    cursor: pointer;
-}
+
 .close{
     color: rgb(0, 0, 0);
-    font-size: 30px;
+    font-size: 3em;
     font-weight: bold;
     position: inherit;
     top: 30%;
@@ -259,45 +264,64 @@ a:visited {
     text-decoration: none;
     cursor: pointer;
 }
-
-#chart{
-    font-size: larger;
-    background-color: white;
-    margin-top: 20px;
-    border-radius: 10px;
-    border-color: #898989;
+.statisticalMain{
+    height: 130vh;
 }
-#charStatus{
-    width: 100px;
-    height: 200px;
-    background: white;
-    margin-top: 20px;
-    border-radius: 10px;
-    border-color: #898989;
+.graphics{
+    margin: 9rem;
     
 }
-#charLocation{
-    width: 800px;
-    height: 400px;
-    background: white;
-    margin-top: 20px;
-    border-radius: 10px;
+
+/* Div */
+.chart{
+    display: none;
+    font-size: larger;
+    margin-top: 2rem;
+
+}
+
+/* Canvas */
+#chart{
+   
+    background-color: white;
     border-color: #898989;
+    border: 10px;
+    border-radius: 10px;
+   
+}
+.charStatus{
+    display: none;
+    margin-top: 2rem;
+   
+}
+#charStatus{
+    background-color: white;
+    border-color: #898989;
+    border: 10px;
+    border-radius: 10px;
+}
+
+.chartLocation{
+    display: none;
+    margin-top: 2rem;
+}
+#chartLocation{
+    background-color: white;
+    border-color: #898989;
+    border: 10px;
+    border-radius: 10px;
 }
 footer{
     display: grid;
     color: #13c4c4;
     text-align: center;
-    padding: 20px 80px;
+    padding: 2rem 8rem;
     background-color: black;
     box-shadow: 0 5px 15px rgb(0, 0,0.6) ;
    
 }
+@media only screen and (max-width: 840px) {
 
-
-
-@media only screen and (max-width: 880px) {
-    
     header{
         display: block; 
         width: 100%;
@@ -332,10 +356,8 @@ footer{
         width: 100%;
 
     }
-    /* /* #navbar ul li {
-       /* display: block; */
-       /* width: 100%; */
-    /* }  */ 
+    
+
     #navbar ul li a {
         text-decoration: none;
         display: block;
@@ -345,32 +367,58 @@ footer{
         color: whitesmoke;
         transition: 0.3s ease;
     }
-    .welcome{
-        margin-top: 10px;
-        margin-left: 8px;
-        font-size: medium;
-        font-weight: 1000;
-    }
     
-    /* #navbar li a:hover, #navbar li a.active {
-        color: #13c4c4;
+    .contenedorModal{
+        width: 70%;
+        top: 35%; left: 17%;
+        z-index:5;
+        padding-top: 0.5rem;
+        height: 51%;
     }
-    
-    #navbar li a.active::after, #navbar li a:hover::after {
-        content: "";
-        width: 30%;
-        height: 2px;
-        background-color: #13c4c4;
-        position: absolute;
-        bottom: -4px;
-        left: 20px;
+    .contenedorModal img{
+        width: 60%;
+        height: 70%;
+    }
+    .contenedorModal h2 {
+        margin-top: 1rem;
+        font-size: 1em;
     }
 
-    #filter{
-        display: block;
-        width: 100%;
+    .close{
+        width: 25px;
+        height: 25px;
+        top: 35%; 
+        right: 14%;
+        font-size: 17px;
     }
-*/
+    .graphics{
+        margin: 0.5rem 0.5rem;
+    }
+    .statisticalMain{
+        height: 80vh;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    
+ 
+    
+    .welcome{
+        margin-top: 0.8rem;
+        margin-left: 0.7rem;
+        font-size: small;
+        font-weight: 1000;
+    }
+    #presentacion .welcome .wselect{
+        width: 35%;
+       
+    }
+    #filter{
+        margin: 0rem;
+        padding: 0rem;
+    }
     #filter .select{
         width: 100%;
     } 
@@ -378,71 +426,64 @@ footer{
         width: 100%;
     
     }
+    #filter-location{
+        margin: 0rem;
+        padding: 0rem;
+        display: block;
+    }
+    #filter-location .select{
+    
+        margin: 0.5rem;
+        width: 100%;
+    
+    
+    }
     .cardBoxDiv{
         width: 100px;
         height: 100px;
-        font-size: 7px; 
-        padding: 5px 10px; 
+        font-size: 6px; 
+        padding: 4px 8px; 
         margin: 5px;
     }
 
     .cardBoxDiv img {
-        width:40px ;
-    }
-
-    .graphics{
-        margin: 0rem;
+        width:100% ;
+        height: 70%;
     }
 
     .contenedorModal{
-        width: 71%;
+        width: 70%;
         top: 35%; left: 17%;
         z-index:5;
-        padding-top: 3%;
-        height: 42%;
+        padding-top: 0.5rem;
+        height: 51%;
     }
     .contenedorModal img{
-        width: 10rem;
+        width: 60%;
+        height: 40%;
     }
-    .contenedorModal h2 {
-        margin-top: 10px;
-    }
+  
     .close{
         width: 25px;
         height: 25px;
         top: 35%; 
         right: 14%;
-        background-color: #13C4C4;
-        border-radius: 15px;
         font-size: 17px;
     }
-
-    #chart{
-        font-size: larger;
-        background-color: white;
-        margin-top: 20px;
-        border-radius: 10px;
-        border-color: #898989;
+    .graphics{
+        /* margin: 0 0.3rem; */
+        margin: 0.5rem 0;
     }
-    .charStatus{
-        width: 800px;
-        height: 400px;
-        background: white;
-        margin-top: 20px;
-        border-radius: 10px;
-        border-color: #898989;
-        
+    .statisticalMain{
+        height: 76vh;
     }
-    #charLocation{
-        width: 800px;
-        height: 400px;
-        background: white;
-        margin-top: 20px;
-        border-radius: 10px;
-        border-color: #898989;
+    footer {
+        padding: 0.2rem;
+    }
+    footer p{
+        width: 100%;
     }
  }
 
  
-
 

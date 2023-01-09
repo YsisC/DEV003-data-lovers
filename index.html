@@ -33,8 +33,24 @@
     </section>
 
 </main>
-  <footer> Creado por Ysis Longart y Angie Muñoz. Derechos Reservados
+  <footer> <p>Creado por Ysis Longart y Angie Muñoz. <br> Derechos Reservados</p>
   </footer>
-    <script src="welcome.js" type="module"></script>
+    <script type="module">
+
+    const botonMenu = document.querySelector(".menu-icon");
+    const menu = document.querySelector(".navbar");
+    botonMenu.addEventListener('click', () => {
+
+      menu.classList.toggle("show")
+    });
+
+const startbtnEl = document.getElementById('inicio');
+
+startbtnEl.addEventListener('click',  ()=> {
+  window.location.href = 'characters.html';
+})
+
+    </script>
+
   </body>
 </html>

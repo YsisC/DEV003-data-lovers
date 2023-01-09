@@ -27,18 +27,26 @@
   <main class="statisticalMain">
     <br>
     <h1> Statistical Calculations </h1>
-    <button>Species Dashboard</button>
-    <button>Status Dashboard</button>
-    <button>Top 10 Location Dashboard</button>
+    <button id="btnSpecies">Species Dashboard</button>
+    <button id="btnStatus">Status Dashboard</button>
+    <button id="btnLocation">Top 10 Location Dashboard</button>
   <div class="graphics">
-    <canvas id="chart" class="chart" width="800" height="400"></canvas>
-    <canvas id="charStatus" class="chartStatus" width="700" height="400"></canvas>
-    <canvas id="charLocation" class="chartLocation" width="700" height="400"></canvas>
+    <div class="chart">
+      <canvas id="chart"  width="800" height="400"></canvas>
+    </div>
+    <div class="chartStatus">
+      <canvas id="charStatus"  width="700" height="400"></canvas>
+    </div>
+    <div class="chartLocation">
+      <canvas id="chartLocation"  width="700" height="400"></canvas>
+    </div>
+  
+    
   </div>
 
 
   </main>
-  <footer> Creado por Ysis Longart y Angie Muñoz. Derechos Reservados
+  <footer> <p>Creado por Ysis Longart y Angie Muñoz. <br> Derechos Reservados</p>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" type="module"></script>
   <script type="module">
@@ -49,7 +57,30 @@
 
       menu.classList.toggle("show")
     });
+    const btnSpecies = document.querySelector('#btnSpecies');
+    const btnStatus = document.querySelector('#btnStatus');
+    const btnLocation = document.querySelector('#btnLocation');
+    const showSpecies = document.querySelector('.chart');
+    const showStatus = document.querySelector('.chartStatus');
+    const showLocation = document.querySelector('.chartLocation');
 
+    btnSpecies.addEventListener('click', function () {
+      showSpecies.style.display = 'block';
+      showStatus.style.display = 'none';
+      showLocation.style.display = 'none';
+    })
+
+    btnStatus.addEventListener('click', function () {
+      showSpecies.style.display = 'none';
+      showStatus.style.display = 'block';
+      showLocation.style.display = 'none';
+    })
+    btnLocation.addEventListener('click', function () {
+      showSpecies.style.display = 'none';
+      showStatus.style.display = 'none';
+      showLocation.style.display = 'block';
+    })
+  
     import data from './data/rickandmorty/rickandmorty.js';
     const dataRick = data.results;
     const species = [{ species: "Alien" }, { species: "Animal" }, { species: "Cronenberg" }, { species: "Disease" }, { species: "Human" }, { species: "Humanoid" }, { species: "Mytholog" }, { species: "Parasite" }, { species: "Poopybutthole" }, { species: "Robot" }, { species: "Vampire" }, { species: "unknown" }];
@@ -72,7 +103,7 @@
     const speciesEl = document.querySelector("#species"); // boton de mostrar y ocultar
     const canvasSpecies = document.querySelector('#chart').getContext('2d');
     const canvaStatus = document.getElementById("charStatus").getContext("2d");
-    const canvaLocation = document.getElementById("charLocation").getContext("2d");
+    const canvaLocation = document.getElementById("chartLocation").getContext("2d");
 
 
     const totalData = dataRick.length;
@@ -253,19 +284,7 @@
             (countLocation['Interdimensional Cable']),
             ],
             borderColor: 'rgb(75, 192, 192)',
-            // backgroundColor: [
-            //     '#76D7C4',
-            //     '#C7DC6F',
-            //     '#F1948A',
-            //     '#F0B27A',
-            //     '#C39BD3',
-            //     '#F1948A',
-            //     '#7FB3D5',
-            //     '#E74C3C',
-            //     '#7DCEA0',
-            //     '#F7DC6F',
-
-            // ]
+          
           }
         ]
       },

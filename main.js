@@ -52,13 +52,13 @@ const containerElement = (obj) =>{
   //Mostrar el Modal con todos los datos completos
   divElement.querySelector('.cardBoxDiv').addEventListener('click', () => {
     divElement.querySelector('.contenedorModal').style.display = 'block';
-    document.querySelector('.my-modal').style.display = 'block';
+    
   });
  
   //Ocultar el modal con todos los datos
   divElement.querySelector('.close').addEventListener('click', () => {
     divElement.querySelector('.contenedorModal').style.display = 'none';
-    document.querySelector('.my-modal').style.display = 'none';
+   
   });
   //Ocultar con escape
   document.addEventListener('keydown', function (e) {
