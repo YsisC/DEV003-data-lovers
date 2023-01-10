@@ -86,7 +86,7 @@ main{
 #presentacion{
     background-image:url("img/Fondo.jpg");
     background-size: cover; 
-    background-position: top 25% right 0 ;
+    background-position: top 1% right 0 ;
     height: 100vh;
     width: 100vw;
     /* margin-top: 25px; */
