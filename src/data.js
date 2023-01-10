@@ -1,20 +1,17 @@
 
-// estas funciones son de ejemplo
-// const dataAll = data.results;
-
 export const filterGender = (dataAll, string) => {
-  const nuevoArray = dataAll.filter((obj) => obj.gender === string); //female Male
+  const nuevoArray = dataAll.filter((obj) => obj.gender === string); //
   return nuevoArray;
 };
 
 
 export const filterSpecies = (dataAll, string) => {
-  const nuevoArray = dataAll.filter((obj) => obj.species === string); // Alien Humanoide
+  const nuevoArray = dataAll.filter((obj) => obj.species === string); // 
   return nuevoArray;
 };
 
 export const filterOrigin = (dataAll, string) => {
-  const nuevoArray = dataAll.filter((obj) => obj.origin.name === string); // Alien Humanoide
+  const nuevoArray = dataAll.filter((obj) => obj.origin.name === string); //
   return nuevoArray;
 };
 
@@ -25,12 +22,12 @@ export const filterCharacters = (dataAll,string) => {
 };
 
 export const filterLocation= (dataAll, string) => {
-  const nuevoArray = dataAll.filter((obj) => obj.location.name === string); // Alien Humanoide
+  const nuevoArray = dataAll.filter((obj) => obj.location.name === string); //
   return nuevoArray;
 };
 
 export const filterStatus= (dataAll, string) => {
-  const nuevoArray = dataAll.filter((obj) => obj.status === string); // Alien Humanoide
+  const nuevoArray = dataAll.filter((obj) => obj.status === string); // 
   return nuevoArray;
 };
 
@@ -48,7 +45,3 @@ export const oderAlphabetically=(dataAll, string) =>{
 }
 
 
-// export const percentSpecies = function (species, resultSpecies) {
-//   const percent = (resultSpecies.length *100)/species.length;
-//   return Math.round(percent);
-// }
